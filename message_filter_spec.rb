@@ -1,6 +1,5 @@
 require_relative 'message_filter'
 
-
 describe MessageFilter do
   shared_examples 'MessageFilter with argument "foo"' do
     it { is_expected.to be_detect('hello from foo') }
@@ -9,6 +8,9 @@ describe MessageFilter do
   context 'with argument "foo"' do
     subject { MessageFilter.new('foo') }
     it_behaves_like 'MessageFilter with argument "foo"'
+    it 'ng_words should not be empty' do
+      expect(subject.ng_words.empty?).to eq false
+    end
   end
   context 'with argument "foo", "bar"' do
     subject { MessageFilter.new('foo', 'bar') }
