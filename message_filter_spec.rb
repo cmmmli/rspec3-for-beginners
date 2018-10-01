@@ -17,6 +17,7 @@ describe MessageFilter do
     subject { MessageFilter.new('foo', 'bar') }
     it { is_expected.to be_detect('hello from bar') }
     it_behaves_like 'MessageFilter with argument "foo"'
+    it { is_expected.to have(2).ng_words }
   end
 end
 
